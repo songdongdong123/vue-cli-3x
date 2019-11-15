@@ -15,15 +15,31 @@ export default {
   },
   computed: {
     // 获取vuex中的state
+    // 全局模块
     ...mapGetters([
-      'count'
-    ])
+      'count',
+    ]),
+
+    // 使用命名空间后的使用方式, 可以分模块调用
+    // user模块
+    ...mapGetters('user', [
+      'Type',
+    ]),
+
+    // order模块
+    
+    ...mapGetters('order', [
+      'Types',
+    ]),
   },
   methods: {
     getCount (number) {
       // 可以使用this.的形式进行访问
-      console.log(this.count)
-      console.log(number)
+      // console.log(this.count)
+      // console.log(number)
+
+      console.log(this.Types)
+      console.log(this.Type)
     } 
   }
 }
